@@ -1,0 +1,46 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="custom.css">
+</head>
+<body style="background-color:#33ccff">
+<div id="topmost-part"> <h1 id="after-login-heading"> Register A New Account </h1> </div>
+<div id="form-container" class="register-box-overall">
+	<form action="register.php">
+		<div class="register-box">
+			<label for="user_name"> Username: </label> 
+			<input type="text" name="user_name" placeholder="You will be known by this name." class="search-textbox-register" id="user_name">
+		</div>
+		<div class="register-box">
+			<label for="password"> Password: </label> 
+			<input type="password" type="password" name="user_password" placeholder="This must be at least 8 characters long." class="search-textbox-register" id="password">
+		</div>
+		
+		<div class="register-box">
+			<label for="email"> Email Add: </label>
+			<input type="email" name="email" placeholder="This must be a valid email." class="search-textbox-register" id="email">
+		</div>
+		<div class="register-box">
+			<button type="submit" name="submit" onclick="checkUsernameAndPasswordValidity(event)" class="search-or-add-button" id="register"> Register </button>
+		</div>
+	</form>
+</div>
+<script>
+function checkUsernameAndPasswordValidity(e) {
+var passwordLength = document.getElementById("password").value;
+var usernameLength = document.getElementById("user_name").value;
+var emailLength = document.getElementById("email");
+if ((usernameLength.length <= 0) || (passwordLength.length < 8) || (emailLength.value.length <= 0) || (!emailLength.isValid())) {
+alert("Username length was: " + usernameLength.length + ". Password length was: " + passwordLength.length + ". Email length was: " + emailLength.length + ". Registration failed. Username and email cannot be empty, and password must be more than 8 characters long.");
+e.preventDefault();
+} else {
+alert("Registration successful.");
+	}
+}
+</script>
+</div>
+</body>
+</html>
+
+<!--
+This page manages the GUI that users will see for the login page. It manages the validation as well for registration.
+!-->
